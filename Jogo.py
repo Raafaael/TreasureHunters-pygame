@@ -26,6 +26,7 @@ enemy_idle_time = 0
 enemy_frame = 0
 enemy_pos_x = 400
 enemy_pos_y = 225
+enemy_time = 0    #parâmetro para controle do inimigo
 
 def load():
     global clock, player, health, sword_rect
@@ -46,6 +47,10 @@ def carrega_inimigo():
         img = pygame.image.load(os.path.join(enemy_path, '01-Idle', f'Idle 0{i}.png'))
         img = pygame.transform.scale(img, (img.get_width() * 2, img.get_height() * 2))
         enemy_idle.append(img)
+    for i in range(1, 6):   # carrega as imagens da animação de run do inimigo
+        img = pygame.image.load(os.path.join(enemy_path, '02-Run', f'Run 0{i}.png'))
+        img = pygame.transform.scale(img, (img.get_width() * 2, img.get_height() * 2))
+        enemy_run.append(img)
 
 def update(dt):
     global main_character_pos_x, main_character_pos_y, player_jump_speed, sword_idle_time, sword_idle_frame,  enemy_frame, enemy_idle,enemy_idle_time
